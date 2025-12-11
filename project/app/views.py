@@ -25,12 +25,6 @@ class GerenciadorTarefasViews:
         return render(request, 'tarefas/adicionar.html', context)
 
     def tarefas_remover(self, request: HttpRequest, id: int):
-        if request.method == 'POST':
-            ids_tarefas = request.POST.getlist("tarefas")
-            AppModel.objects.filter(id__in=ids_tarefas).delete()
-            return redirect("home")
-
-        context = {
-            "tarefas": AppModel.objects.all()
-        }
-        return render(request, 'tarefas/remover.html', context)
+        tarefa = get_object_or_404(AppModel, id=id)
+        tarefa = delete()
+        return redirect("tarefas:home")
