@@ -22,7 +22,8 @@
                 <td>{{ tarefa.description }}</td>
                 <td>{{ tarefa.complete }}</td>
                 <td>{{ tarefa.date_created }}</td>
-                <td><a href="{% url 'tarefas:remover' tarefa.id %}">Remover</a></td>
+                <td><a href="{% url 'tarefas:editar' tarefa.id %}">editar</a></td>
+                <td><a href="{% url 'tarefas:remover' tarefa.id %}">remover</a></td>
             </tr> {% endfor %}
         </tbody>
     </table>
